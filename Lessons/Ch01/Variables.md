@@ -22,6 +22,39 @@ The End. No really, that's it! This is all you need to make a variable. Let's pi
 
 Think of it like this. `f(x) = x^2` says that x is a variable that you fill in, this would be the `let x` portion of the line of code. Plugging a value in for x, like `f(10)`, is actually giving x a value that you can reference. This is the `= 10` part of the code.
 
+The main thing that's special about `let` is the ability to *change* the value of your variable later.
+```js
+let someNumber = 20;
+console.log(someNumber);
+console.log(someNumber * 2);
+someNumber = 10;
+console.log(someNumber);
+// In this example, we're reassigning the value of someNumber
+```
+## Curveball, not all variables can change!
+```js
+const x = 10;
+```
+Yeah so turns out there are also constants. It's considered good practice to use constants unless you *need* the ability to change a variable's value later.
+```js
+const someNumber = 10;
+console.log(someNumber);
+console.log(someNumber + 5);
+console.log(someNumber * 2);
+// In the above example, someNumber should be a const since its value is never changed (reassigned)
+```
+```js
+const someNumber = 20;
+console.log(someNumber);
+console.log(someNumber * 2);
+someNumber = 10; 
+// Once the code reaches this point, it will throw an error and stop the script.
+// The error will say something like "TypeError: invalid assignment to const 'x'"
+
+// Because an error is thrown before this code, the last line of code is never ran.
+console.log(someNumber);
+// In *this* example, someNumber should be a variable defined with let since we're reassigning to it.
+```
 ## A Plea
 MAKE THE NAMES OF YOUR VARIABLES RELAVENT TO THE VALUE OF THE VARIABLE!!!
 No seriously, you'll do a huge favor to everybody who has to read your code. This applies throughout most of programming, weather it be variable names, filenames, or function names, please make names readable.
