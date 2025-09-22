@@ -55,8 +55,39 @@ someNumber = 10;
 console.log(someNumber);
 // In *this* example, someNumber should be a variable defined with let since we're reassigning to it.
 ```
-## A Plea
+
+## Where can I and should I use variables?
+Anywhere you use the same value more than three times, or in more than one file. That's my rule, other people have other guides, but that's my recommendation.
+```js
+const value = 10;
+console.log(value * 8);
+// This is an example of somewhere I'd *not* use a variable.
+```
+```js
+const number = 30;
+console.log(number);
+console.log(number * 10);
+// Same here
+```
+
+```js
+// File1.js
+export foo = "Hello!";
+// ^^^ Don't worry about that, simple explanation is that it lets you use a value in another file
+console.log(foo);
+
+
+// File2.js
+import { foo } from "File1";
+// Ignore the above line, summary is that it lets this file use foo from the other file
+console.log(foo);
+
+// In this example, I *would* use a variable. This is because it makes it much easier to change what happens in file1 and file2 without having to go into both files
+```
+# Two Pleas
 MAKE THE NAMES OF YOUR VARIABLES RELAVENT TO THE VALUE OF THE VARIABLE!!!
 No seriously, you'll do a huge favor to everybody who has to read your code. This applies throughout most of programming, weather it be variable names, filenames, or function names, please make names readable.
 
 Nobody wants to see a variable named `x` and see x defined as `let x = gph()` and have to figure out what the hell gph does. (For reference, gph is an acronym that stands for Get Player Health.) This is just an example, but you can see why this would be horrible to work with.
+
+Also, aside from having good variable names. Above all else, don't use `var`. I bring it up since some code still uses `var` and it *does* have uses, but most of the time when `var` is used it's a bad idea. It's a legacy feature that was replaced over a decade ago in 2015. The value of `var` variables can be changed just like `let`, but it has some odd rules regarding scope.
