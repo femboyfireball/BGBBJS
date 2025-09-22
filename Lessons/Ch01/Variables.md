@@ -86,6 +86,7 @@ console.log(foo);
 ```
 
 Now, as for where *can* you use a variable, you can't just declare a variable in one place and always use it somewhere else. This is generally referred to as "scope", and can be thought of like a pyramid. Things at the bottom of the pyramid can be used at the top, but things at the top can't be used at the bottom. Each level of this pyramid is represented with a set of curly brackets, {}. Here's an example.
+
 ![Pyramid representing scope levels](/Resources/Ch01/ScopePyramid.png)
 ```js
 // Level 1
