@@ -84,6 +84,27 @@ console.log(foo);
 
 // In this example, I *would* use a variable. This is because it makes it much easier to change what happens in file1 and file2 without having to go into both files
 ```
+
+Now, as for where *can* you use a variable, you can't just declare a variable in one place and always use it somewhere else. This is generally referred to as "scope", and can be thought of like a pyramid. Things at the bottom of the pyramid can be used at the top, but things at the top can't be used at the bottom. Each level of this pyramid is represented with a set of curly brackets, {}. Here's an example.
+![Pyramid representing scope levels](/Resources/Ch01/ScopePyramid.png)
+```js
+// Level 1
+const foo = "Hello";
+{   
+    // Level 2
+    const x = " World!"
+    {   
+        // Level 3
+        const y = 10;
+        console.log(y); // Prints 10 to the console
+        console.log(foo + x); // Prints 'Hello World!' to the console
+    }
+    // Level 2
+    console.log(foo); // Prints 'Hello' to the console
+}
+// Level 1
+console.log(y); // Throws an error since at this scope level, y is undefined.
+```
 # Two Pleas
 MAKE THE NAMES OF YOUR VARIABLES RELAVENT TO THE VALUE OF THE VARIABLE!!!
 No seriously, you'll do a huge favor to everybody who has to read your code. This applies throughout most of programming, weather it be variable names, filenames, or function names, please make names readable.
